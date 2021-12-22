@@ -11,8 +11,8 @@ def index():
     db = os.environ['REDIS_DB']
     client = redis.Redis(username=username, password=password, host=host, port=port, db=db)
     key = 'HIT_COUNT'
-    count = int(client.get(key)) or 0
+    count = str(client.get(key)) or 0
     response = f'Hello FELFEL. The count is: {count}'
-    client.set(key, count + 1)
+    #client.set(key, str(count + 1))
     return response
 app.run(host='0.0.0.0', port=8080)
