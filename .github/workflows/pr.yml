@@ -48,7 +48,7 @@ jobs:
     - name: Add permissions to the deployment script
       run: |
         export SHELL=/bin/bash
-        chmod 700 deploy_script.sh
+        chmod 700 deploy_felfel.sh
 
     - name: Deploy the helm chart
       run: |
