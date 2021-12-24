@@ -32,9 +32,15 @@ jobs:
     - name: Deploy to minikube
       run:
         curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+
+    - name: Add permissions to the files 
+      run:
         chmod 700 get_helm.sh
-        ./get_helm.sh
         chmod +x deploy_script.sh
+
+    - name: Install helm and deploy the script
+      run:
+        ./get_helm.sh
         ./deploy_script.sh
 
     - name: Test service URLs
