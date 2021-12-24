@@ -33,10 +33,10 @@ jobs:
       run:
         curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 
-    - name: Add permissions to the files 
-      run:
-        chmod 700 get_helm.sh
-        chmod 700 deploy_script.sh
+    # - name: Add permissions to the files 
+    #   run:
+    #     chmod 700 get_helm.sh
+    #     chmod 700 deploy_script.sh
 
     - name: Install helm and deploy the script
       run:
