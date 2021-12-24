@@ -63,6 +63,6 @@ jobs:
       if: always()
       run: |
         minikube service list
-        minikube service myfelfel --url
+        minikube service myfelfel --url -n felfel
         echo "------------------opening the service------------------"
-        curl $(minikube service myfelfel --url)        
+        curl $(minikube service myfelfel --url -n felfel)        
