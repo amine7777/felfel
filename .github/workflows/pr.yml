@@ -36,7 +36,7 @@ jobs:
     - name: Add permissions to the files 
       run:
         chmod 700 get_helm.sh
-        chmod +x deploy_script.sh
+        chmod 700 deploy_script.sh
 
     - name: Install helm and deploy the script
       run:
