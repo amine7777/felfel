@@ -54,7 +54,7 @@ jobs:
     - name: Deploy the helm chart
       run: |
         export SHELL=/bin/bash
-        ./deploy_script.sh
+        ./deploy_felfel.sh
       env:
         REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
 
