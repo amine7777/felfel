@@ -1,0 +1,38 @@
+name: CI
+on:
+  - pull_request
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    name: build example and deploy to minikube
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Start minikube
+      uses: medyagh/setup-minikube@
+      
+    - name: Try the cluster !
+      run: kubectl get pods -A
+
+    - name: Build image
+      run: |
+        export SHELL=/bin/bash
+        eval $(minikube -p minikube docker-env)
+        docker build -f ./Dockerfile -t felfel:0.0.1 .
+        echo -n "verifying images:"
+        docker images        
+
+    - name: Deploy to minikube
+      run:
+        curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+        chmod 700 get_helm.sh
+        ./get_helm.sh
+        chmod +x deploy_script.sh
+        ./deploy_script.sh
+
+    - name: Test service URLs
+      run: |
+        minikube service list
+        minikube service myfelfel --url
+        echo "------------------opening the service------------------"
+        curl $(minikube service myfelfel --url)        
