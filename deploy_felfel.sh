@@ -25,6 +25,10 @@ helm status $HELM_RELEASE_NAME | grep STATUS
 
 
 # Set the host and the IP in /etc/hosts
-MINIKUBE_IP=$(minikube ip)
-echo "$MINIKUBE_IP $NAMESPACE.local" >> /etc/hosts
+
+# I have commented these cmds to allow the CICD to succeed
+# Please uncomment them if you run localy
+
+# MINIKUBE_IP=$(minikube ip)
+# echo "$MINIKUBE_IP $NAMESPACE.local" >> /etc/hosts
 
