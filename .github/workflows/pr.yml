@@ -65,4 +65,4 @@ jobs:
         minikube service list
         minikube service myfelfel --url -n felfel
         echo "------------------opening the service------------------"
-        curl $(minikube service myfelfel --url -n felfel) --max-time 5   
+        curl $(minikube service myfelfel --url -n felfel) --max-time 7  
