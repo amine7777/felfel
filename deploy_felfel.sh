@@ -18,6 +18,7 @@ else
 fi
 
 # Install the helm chart
+kubectl create ns $NAMESPACE
 helm dependency update $HELM_CHART
 helm upgrade --install $HELM_RELEASE_NAME $HELM_CHART --namespace $NAMESPACE --set redis.global.redis.password=$REDIS_PASSWORD --set namespace=$NAMESPACE --set ingress.hosts[0].host=$NAMESPACE.local,ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=ImplementationSpecific
 helm status $HELM_RELEASE_NAME | grep STATUS
