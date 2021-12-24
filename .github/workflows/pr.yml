@@ -35,11 +35,13 @@ jobs:
 
     - name: Add permissions to the helm file
       run:
+        ls -la
         chmod 700 get_helm.sh
 
     - name: Install helm
       run:
         ./get_helm.sh
+        ls -la
 
     - name: Add permissions to the deployment script
       run:
