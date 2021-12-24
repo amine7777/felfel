@@ -52,6 +52,7 @@ jobs:
         chmod 700 deploy_felfel.sh
 
     - name: Deploy the helm chart
+      if: always()
       run: |
         export SHELL=/bin/bash
         ./deploy_felfel.sh
@@ -59,6 +60,7 @@ jobs:
         REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
 
     - name: Test service URLs
+      if: always()
       run: |
         minikube service list
         minikube service myfelfel --url
