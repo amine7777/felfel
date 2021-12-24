@@ -34,21 +34,25 @@ jobs:
         curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 
     - name: Add permissions to the helm file
-      run:
+      run: |
+        export SHELL=/bin/bash
         ls -la
         chmod 700 get_helm.sh
 
     - name: Install helm
-      run:
+      run: |
+        export SHELL=/bin/bash
         ./get_helm.sh
         ls -la
 
     - name: Add permissions to the deployment script
-      run:
+      run: |
+        export SHELL=/bin/bash
         chmod 700 deploy_script.sh
 
     - name: Deploy the helm chart
-      run: 
+      run: |
+        export SHELL=/bin/bash
         ./deploy_script.sh
       env:
         REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
