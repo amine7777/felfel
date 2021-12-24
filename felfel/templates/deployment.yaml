@@ -37,7 +37,7 @@ spec:
             - name: REDIS_DB
               value: '0'
             - name: REDIS_HOST
-              value: $(MYFELFEL_REDIS_MASTER_SERVICE_HOST)
+              value: "{{ .Release.Name }}-redis-master-0.{{ .Release.Name }}-redis-headless.{{ .Values.namespace }}.svc.cluster.local"                      #$({{ .Release.Name | upper }}_REDIS_MASTER_SERVICE_HOST)
             - name: REDIS_PORT
               value: '6379'
             - name: REDIS_USERNAME
