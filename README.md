@@ -83,7 +83,7 @@ services:
   web:
     build: .
     ports:
-     - "8085:8080"
+     - "8080:8080"
     volumes:
      - .:/code
     environment:
